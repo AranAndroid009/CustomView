@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<resources>
+    <declare-styleable name="SquareTextView" pa>
+        <!-- 圆角-->
+        <attr name="corner" format="dimension"/>
+        <attr name="corner_left_top" format="dimension"/>
+        <attr name="corner_right_top" format="dimension"/>
+        <attr name="corner_left_bottom" format="dimension"/>
+        <attr name="corner_right_bottom" format="dimension"/>
+        <!--        线宽-->
+        <attr name="line_width" format="dimension"/>
+        <!--        虚线宽度-->
+        <attr name="dash_width" format="dimension"/>
+        <!--        虚线间距-->
+        <attr name="dash_gap" format="dimension"/>
+        <!--        线颜色-->
+        <attr name="line_color" format="color"/>
+        <attr name="background_color" format="color"/>
+    </declare-styleable>
+</resources>

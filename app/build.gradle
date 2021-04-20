@@ -39,48 +39,7 @@ dependencies {
 
 
 
-apply plugin: 'maven'
-//声明变量记录上传Maven库地址
-def repositoryUrl
-//判断发到正式库还是snapshot库
-if (isReleaseBuild()) {
-    println 'Release Build'
-    //上传Release私有仓库
-    repositoryUrl = 'http://10.1.1.9:8081/repository/maven-releases/'
-} else {
-    println 'Debug Build'
-    //上传snapshot私有仓库
-    repositoryUrl = 'http://10.1.1.9:8081/repository/maven-snapshots/'
-}
-//从项目gradle.properties中读取Nexus服务器登录用户名
-def getRepositoryUserName() {
-    return hasProperty('NEXUS_USERNAME') ? NEXUS_USERNAME : ""
-}
-//读取Nexus服务器登录密码
-def getRepositoryPassword() {
-    return hasProperty('NEXUS_PASSWORD') ? NEXUS_PASSWORD : ""
-}
-//通过gradle.properties中VERSION_NAME常量判断是否是Release版本
-def isReleaseBuild() {
-    return !VERSION_NAME.contains("SNAPSHOT")
-}
-uploadArchives {
-    repositories {
-        mavenDeployer {
-            pom.groupId = POM_GROUP_ID
-            pom.artifactId = VERSION_NAME
-            pom.version = VERSION_NAME
-            pom.packaging = POM_PACKAGING
-            repository(url: repositoryUrl) {
-                authentication(userName: getRepositoryUserName(), password: getRepositoryPassword())
-                println POM_GROUP_ID
-                println repositoryUrl
-                println getRepositoryUserName()
-                println getRepositoryPassword()
-            }
-        }
-    }
-}
+
 
 
 
