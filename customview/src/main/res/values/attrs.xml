@@ -17,4 +17,24 @@
         <attr name="line_color" format="color"/>
         <attr name="background_color" format="color"/>
     </declare-styleable>
+
+    <declare-styleable name="SquareTextEdit" >
+        <!-- 左边文字大小-->
+        <attr name="text_size" format="dimension"/>
+<!--        右边编辑框大小-->
+        <attr name="edit_size" format="dimension"/>
+<!--        左边文字颜色-->
+        <attr name="text_color" format="color"/>
+<!--        右边编辑框文字颜色-->
+        <attr name="edit_color" format="color"/>
+<!--        提示文字颜色-->
+        <attr name="hint_color" format="color"/>
+<!--        提示文字-->
+        <attr name="hint" format="string"/>
+<!--        左边文字-->
+        <attr name="key" format="string"/>
+<!--        右边文字-->
+        <attr name="value" format="string"/>
+    </declare-styleable>
+
 </resources>

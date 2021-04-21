@@ -6,7 +6,7 @@ import android.util.AttributeSet
 import androidx.annotation.Nullable
 import androidx.appcompat.widget.AppCompatEditText
 
-class SquareTextView(
+class SquareEdit(
     @Nullable context: Context?,
     @Nullable attrs: AttributeSet?,
     defStyleAttr: Int

@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.SquareActivity"
+    android:orientation="horizontal">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="vertical"
+            android:gravity="center_horizontal"
+            android:layout_height="match_parent"
+            >
+
+
+
+    <com.aranandroid.customview.squareview.SquareTextView
+        android:layout_height="80dp"
+        android:layout_width="120dp"
+        app:line_width="1dp"
+        app:corner="20dp"
+        app:line_color="@color/colorAccent"
+        android:layout_margin="@dimen/dp_10"
+        android:gravity="center"
+        android:text="空心矩形" />
+
+    <com.aranandroid.customview.squareview.SquareTextView
+        android:layout_height="80dp"
+        android:layout_width="80dp"
+        app:line_width="1dp"
+        app:corner="80dp"
+        app:line_color="@color/colorAccent"
+        android:layout_margin="@dimen/dp_10"
+        android:gravity="center"
+        android:text="空心矩形" />
+
+
+    <com.aranandroid.customview.squareview.SquareTextView
+        android:layout_height="@dimen/dp_40"
+        android:layout_width="80dp"
+        app:line_width="1dp"
+        app:dash_width="2dp"
+        app:corner="20dp"
+        app:dash_gap="1dp"
+        app:line_color="@color/colorAccent"
+        android:layout_margin="@dimen/dp_10"
+        android:gravity="center"
+        android:text="虚线矩形"/>
+
+    <com.aranandroid.customview.squareview.SquareTextView
+        android:layout_height="80dp"
+        android:layout_width="80dp"
+        app:line_width="1dp"
+        app:dash_width="2dp"
+        app:dash_gap="5dp"
+        app:corner="80dp"
+        app:line_color="@color/colorAccent"
+        android:layout_margin="@dimen/dp_10"
+        android:gravity="center"
+        android:text="虚线圆"/>
+
+
+    <com.aranandroid.customview.squareview.SquareTextView
+        android:layout_height="60dp"
+        android:layout_width="100dp"
+        app:background_color="@color/colorAccent"
+        app:corner="20dp"
+        android:layout_margin="@dimen/dp_10"
+        android:gravity="center"
+        android:text="实心矩形"/>
+
+
+    <com.aranandroid.customview.squareview.SquareTextView
+        android:layout_height="80dp"
+        android:layout_width="80dp"
+        app:background_color="@color/colorAccent"
+        app:corner="80dp"
+        android:layout_margin="@dimen/dp_10"
+        android:gravity="center"
+        android:text="实心圆"
+        />
+
+    <com.aranandroid.customview.squareview.SquareTextView
+        android:layout_height="80dp"
+        android:layout_width="120dp"
+        app:background_color="@color/colorAccent"
+        app:corner="20dp"
+        app:line_width="1dp"
+        app:line_color="@color/red"
+        android:layout_margin="@dimen/dp_10"
+        android:gravity="center"
+        android:text="双实矩形"/>
+
+
+    <com.aranandroid.customview.squareview.SquareTextView
+        android:layout_height="80dp"
+        android:layout_width="80dp"
+        app:background_color="@color/colorAccent"
+        app:corner="80dp"
+        app:line_width="1dp"
+        app:line_color="@color/red"
+        android:layout_margin="@dimen/dp_10"
+        android:gravity="center"
+        android:text="双实心圆"
+        />
+
+
+            <com.aranandroid.customview.squareview.SquareTextView
+                android:layout_height="80dp"
+                android:layout_width="120dp"
+                app:background_color="@color/colorAccent"
+                app:corner="20dp"
+                app:line_width="1dp"
+                app:line_color="@color/red"
+                app:dash_width="2dp"
+                app:dash_gap="@dimen/dp_4"
+                android:layout_margin="@dimen/dp_10"
+                android:gravity="center"
+                android:text="双实矩形"/>
+
+
+            <com.aranandroid.customview.squareview.SquareTextView
+                android:layout_height="80dp"
+                android:layout_width="80dp"
+                app:background_color="@color/colorAccent"
+                app:corner="80dp"
+                app:line_width="1dp"
+                app:line_color="@color/red"
+                app:dash_width="5dp"
+                app:dash_gap="@dimen/dp_4"
+                android:layout_margin="@dimen/dp_10"
+                android:gravity="center"
+                android:text="双实心圆"
+                />
+
+            <com.aranandroid.customview.squareview.SquareTextView
+                android:layout_height="80dp"
+                android:layout_width="120dp"
+                app:line_width="1dp"
+                app:corner_left_top="20dp"
+                app:corner_left_bottom="10dp"
+                app:corner_right_top="5dp"
+                app:line_color="@color/colorAccent"
+                android:layout_margin="@dimen/dp_10"
+                android:gravity="center"
+                android:text="异形矩形" />
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

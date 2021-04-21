@@ -3,20 +3,23 @@ package com.aranandroid.customview.squareview
 import android.content.Context
 import android.graphics.Canvas
 import android.util.AttributeSet
+import android.view.LayoutInflater
 import androidx.annotation.Nullable
-import androidx.appcompat.widget.AppCompatEditText
+import androidx.constraintlayout.widget.ConstraintLayout
+import com.aranandroid.customview.R
 
-class SquareTextView(
+class SquareTextEdit(
     @Nullable context: Context?,
     @Nullable attrs: AttributeSet?,
     defStyleAttr: Int
 ) :
-    AppCompatEditText(context!!, attrs, defStyleAttr) {
+    ConstraintLayout(context!!, attrs, defStyleAttr) {
 
     var squareView: SquareView
 
     init {
         squareView = SquareView(context, attrs, defStyleAttr, this)
+        LayoutInflater.from(context).inflate(R.layout.square_text_edit,this,true)
     }
 
     constructor(context: Context?, attrs: AttributeSet?) : this(
@@ -37,3 +40,8 @@ class SquareTextView(
 
 
 }
+
+
+
+
+

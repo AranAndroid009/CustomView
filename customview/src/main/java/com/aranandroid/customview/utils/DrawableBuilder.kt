@@ -55,13 +55,13 @@ class DrawableBuilder {
      */
     @JvmOverloads
     fun line(
-        width: Int = defaultLineWidth,
+        width: Float = defaultLineWidth,
         color: Int = defaultLineColor
     ): DrawableBuilder {
         return lineWidth(width).lineColor(color)
     }
 
-    fun line(width: Int, color: String): DrawableBuilder {
+    fun line(width: Float, color: String): DrawableBuilder {
         return lineWidth(width).lineColor(color)
     }
 
@@ -70,8 +70,8 @@ class DrawableBuilder {
      *
      * @return
      */
-    fun lineWidth(lineWidth: Int): DrawableBuilder {
-        this.lineWidth = dp2px(lineWidth.toFloat())
+    fun lineWidth(lineWidth: Float): DrawableBuilder {
+        this.lineWidth = dp2px(lineWidth)
         return this
     }
 
@@ -139,9 +139,17 @@ class DrawableBuilder {
 
     companion object {
         //默认线条粗细 1dp
-        private const val defaultLineWidth = 1
+        private const val defaultLineWidth = 1F
         private val defaultLineColor = Color.parseColor("#e9e9e9")
-        private val defaultCornerRadius = floatArrayOf(dp2px(2F).toFloat(),dp2px(2F).toFloat(),dp2px(2F).toFloat(),dp2px(2F).toFloat())
+        private val defaultCornerRadius = floatArrayOf(
+            dp2px(2F).toFloat(),
+            dp2px(2F).toFloat(),
+            dp2px(2F).toFloat(),
+            dp2px(2F).toFloat(),
+            dp2px(2F).toFloat(),
+            dp2px(2F).toFloat(),
+            dp2px(2F).toFloat(),
+            dp2px(2F).toFloat())
 
         //椭圆形圆角
         private const val defaultRoundCornerRadius = 100

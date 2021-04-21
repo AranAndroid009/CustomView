@@ -3,15 +3,15 @@ package com.aranandroid.customview.squareview
 import android.content.Context
 import android.graphics.Canvas
 import android.util.AttributeSet
+import android.widget.LinearLayout
 import androidx.annotation.Nullable
-import androidx.appcompat.widget.AppCompatEditText
 
-class SquareTextView(
+class SquareLinearLayout(
     @Nullable context: Context?,
     @Nullable attrs: AttributeSet?,
     defStyleAttr: Int
 ) :
-    AppCompatEditText(context!!, attrs, defStyleAttr) {
+    LinearLayout(context!!, attrs, defStyleAttr) {
 
     var squareView: SquareView
 
