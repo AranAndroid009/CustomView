@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <resources>
-    <declare-styleable name="SquareTextView" pa>
+    <declare-styleable name="SquareTextView" >
         <!-- 圆角-->
         <attr name="corner" format="dimension"/>
         <attr name="corner_left_top" format="dimension"/>

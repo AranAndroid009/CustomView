@@ -18,7 +18,6 @@ class SquareTextView(@Nullable context: Context?, attrs: AttributeSet?, defStyle
     init {
         val obtainStyledAttributes =
             context!!.obtainStyledAttributes(attrs, R.styleable.SquareTextView)
-        obtainStyledAttributes.getBoolean()
 
     }
     constructor(context: Context?, attrs: AttributeSet?): this(context, attrs,android.R.attr.textViewStyle){
