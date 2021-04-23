@@ -29,11 +29,4 @@ class SquareButton(
 
     }
 
-
-    override fun onDraw(canvas: Canvas?) {
-        super.onDraw(canvas)
-        background = squareView.getBackGround()
-    }
-
-
 }

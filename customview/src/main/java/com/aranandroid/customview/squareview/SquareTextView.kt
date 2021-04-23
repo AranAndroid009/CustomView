@@ -27,13 +27,14 @@ class SquareTextView(
 
     constructor(context: Context?) : this(context, null) {
 
+
     }
 
 
     override fun onDraw(canvas: Canvas?) {
         super.onDraw(canvas)
-        background = squareView.getBackGround()
     }
+
 
 
 }

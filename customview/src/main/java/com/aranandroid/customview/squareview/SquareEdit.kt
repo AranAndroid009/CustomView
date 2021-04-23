@@ -30,10 +30,7 @@ class SquareEdit(
     }
 
 
-    override fun onDraw(canvas: Canvas?) {
-        super.onDraw(canvas)
-        background = squareView.getBackGround()
-    }
+
 
 
 }

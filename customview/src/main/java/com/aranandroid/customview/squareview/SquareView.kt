@@ -16,41 +16,52 @@ open class SquareView(
     private val view: View
 ) {
     val DEFZERO = 0F
-    var corner: Float = 0F
-        set(value) {
-            field = value
-            view.invalidate()
-        }
+    private var corner: Float = 0F
+
     var cornerlt: Float
     var cornerlb: Float
     var cornerrt: Float
     var cornerrb: Float
 
-    var linewidth: Float = 0F
-        set(value) {
-            field = value
-            view.invalidate()
-        }
-    var dashwidth: Float = 0F
-        set(value) {
-            field = value
-            view.invalidate()
-        }
-    var dashgap: Float = 0F
-        set(value) {
-            field = value
-            view.invalidate()
-        }
-    var linecolor: Int = 0
-        set(value) {
-            field = value
-            view.invalidate()
-        }
-    var fillcolor: Int = 0
-        set(value) {
-            field = value
-            view.invalidate()
-        }
+    private var dashwidth: Float = 0F
+    private var dashgap: Float = 0F
+    private var linecolor: Int = 0
+    private var fillcolor: Int = 0
+    private var linewidth: Float = 0F
+
+    fun setCorner(value:Float) {
+        corner = value
+        cornerlt = 0F
+        cornerlb = 0F
+        cornerrt = 0F
+        cornerrb = 0F
+        view.background = getBackGround()
+    }
+
+    fun setLinewidth(value: Float) {
+        linewidth = value
+        view.background = getBackGround()
+    }
+
+    fun setDashwidth(value: Float) {
+        dashwidth = value
+        view.background = getBackGround()
+    }
+
+    fun setDashgap(value: Float) {
+        dashgap = value
+        view.background = getBackGround()
+    }
+
+    fun setLinecolor(value: Int) {
+        linecolor = value
+        view.background = getBackGround()
+    }
+
+    fun setFillcolor(value: Int) {
+        fillcolor = value
+        view.background = getBackGround()
+    }
 
     init {
         val obtainStyledAttributes =
@@ -90,8 +101,7 @@ open class SquareView(
             R.styleable.SquareTextView_background_color,
             Color.TRANSPARENT
         )
-
-
+        view.background = getBackGround()
     }
 
 
@@ -139,7 +149,8 @@ open class SquareView(
         cornerlb = float[1]
         cornerrt = float[2]
         cornerrb = float[3]
-        view.invalidate()
+        view.background = getBackGround()
     }
+
 
 }

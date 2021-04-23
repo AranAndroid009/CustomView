@@ -22,7 +22,7 @@ class SquareLinearLayout(
     constructor(context: Context?, attrs: AttributeSet?) : this(
         context,
         attrs,
-        android.R.attr.textViewStyle
+       0
     )
 
     constructor(context: Context?) : this(context, null) {
@@ -30,10 +30,6 @@ class SquareLinearLayout(
     }
 
 
-    override fun onDraw(canvas: Canvas?) {
-        super.onDraw(canvas)
-        background = squareView.getBackGround()
-    }
 
 
 }

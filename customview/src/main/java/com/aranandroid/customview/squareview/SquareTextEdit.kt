@@ -3,12 +3,16 @@ package com.aranandroid.customview.squareview
 import android.content.Context
 import android.graphics.Canvas
 import android.graphics.Color
+import android.text.TextUtils
 import android.util.AttributeSet
 import android.view.LayoutInflater
+import android.view.View
+import android.widget.EditText
+import android.widget.TextView
 import androidx.annotation.Nullable
 import androidx.constraintlayout.widget.ConstraintLayout
 import com.aranandroid.customview.R
-import com.blankj.utilcode.util.SizeUtils.sp2px
+import com.blankj.utilcode.util.ConvertUtils
 
 class SquareTextEdit(
     @Nullable context: Context?,
@@ -19,62 +23,110 @@ class SquareTextEdit(
 
     var squareView: SquareView
 
-    var textsize = sp2px(14f).toFloat()
-    set(value) {field = value
-    invalidate()}
+    val textview:TextView
 
-    var editsize = sp2px(14f).toFloat()
-        set(value) {field = value
-            invalidate()}
+    val edittext:EditText
 
+    var textsize = ConvertUtils.sp2px(14f).toFloat()
+        set(value) {
+            field = value
+            textview.setTextSize(textsize)
+        }
+    var editsize = ConvertUtils.sp2px(14f).toFloat()
+        set(value) {
+            field = value
+            edittext.setTextSize(editsize)
+        }
     var textcolor = Color.BLACK
-    set(value) {field = value
-    invalidate()}
+        set(value) {
+            field = value
+            textview.setTextColor(textcolor)
+        }
+    var editcolor = Color.BLACK
+        set(value) {
+            field = value
+            edittext.setTextColor(editcolor)
+        }
+    var hintcolor = Color.GRAY
+        set(value) {
+            field = value
+            edittext.setHintTextColor(hintcolor)
+        }
+    var hint : String? = null
+        set(value) {
+            field = value
+            edittext.setHint(hint)
+
+        }
+    var key : String? = null
+        set(value) {
+            field = value
+            textview.setText(key)
+        }
+    var valueme : String? = null
+        set(value) {
+            field = value
+            if(TextUtils.isEmpty(valueme)){
+                edittext.setText(null)
+            }else{
+                edittext.setText(valueme)
+            }
+        }
+    val view: View
+
 
     init {
         squareView = SquareView(context, attrs, defStyleAttr, this)
         val obtainStyledAttributes =
             context!!.obtainStyledAttributes(attrs, R.styleable.SquareTextEdit)
-        LayoutInflater.from(context).inflate(R.layout.square_text_edit,this,true)
+        view = LayoutInflater.from(context).inflate(R.layout.square_text_edit, this, true)
+        textview = view.findViewById<TextView>(R.id.text)
+        edittext = view.findViewById<EditText>(R.id.edit)
 
         textsize = obtainStyledAttributes.getDimension(
             R.styleable.SquareTextEdit_text_size,
-            sp2px(14F).toFloat()
+            (14F).toFloat()
         )
         editsize = obtainStyledAttributes.getDimension(
             R.styleable.SquareTextEdit_edit_size,
-            sp2px(14F).toFloat()
+            (14F).toFloat()
         )
 
-        obtainStyledAttributes.getColor(
+        textcolor = obtainStyledAttributes.getColor(
             R.styleable.SquareTextEdit_text_color,
             Color.BLACK
         )
 
-        obtainStyledAttributes.getColor(
-            R.styleable.SquareTextEdit_edit_size,
+        editcolor = obtainStyledAttributes.getColor(
+            R.styleable.SquareTextEdit_edit_color,
             Color.BLACK
         )
 
+        hintcolor = obtainStyledAttributes.getColor(
+            R.styleable.SquareTextEdit_hint_color,
+            Color.GRAY
+        )
 
-        <!--        左边文字颜色-->
-        <attr name="text_color" format="color"/>
-        <!--        右边编辑框文字颜色-->
-        <attr name="edit_color" format="color"/>
-        <!--        提示文字颜色-->
-        <attr name="hint_color" format="color"/>
-        <!--        提示文字-->
-        <attr name="hint" format="string"/>
-        <!--        左边文字-->
-        <attr name="key" format="string"/>
-        <!--        右边文字-->
-        <attr name="value" format="string"/>
+        hint = obtainStyledAttributes.getString(
+            R.styleable.SquareTextEdit_hint
+        )
+
+        key = obtainStyledAttributes.getString(
+            R.styleable.SquareTextEdit_key
+        )
+
+        valueme = obtainStyledAttributes.getString(
+            R.styleable.SquareTextEdit_value
+        )
+
+
+
     }
 
     constructor(context: Context?, attrs: AttributeSet?) : this(
         context,
         attrs,
-        android.R.attr.textViewStyle
+        0
     )
 
     constructor(context: Context?) : this(context, null) {
@@ -82,10 +134,6 @@ class SquareTextEdit(
     }
 
 
-    override fun onDraw(canvas: Canvas?) {
-        super.onDraw(canvas)
-        background = squareView.getBackGround()
-    }
 
 
 }

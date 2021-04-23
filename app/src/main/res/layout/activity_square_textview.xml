@@ -19,6 +19,7 @@
 
 
     <com.aranandroid.customview.squareview.SquareTextView
+        android:id="@+id/hollow_rectangle"
         android:layout_height="80dp"
         android:layout_width="120dp"
         app:line_width="1dp"
@@ -26,7 +27,18 @@
         app:line_color="@color/colorAccent"
         android:layout_margin="@dimen/dp_10"
         android:gravity="center"
-        android:text="空心矩形" />
+        android:text="代码控制矩形" />
+
+
+            <com.aranandroid.customview.squareview.SquareTextView
+                android:layout_height="80dp"
+                android:layout_width="120dp"
+                app:line_width="1dp"
+                app:corner="20dp"
+                app:line_color="@color/colorAccent"
+                android:layout_margin="@dimen/dp_10"
+                android:gravity="center"
+                android:text="空心矩形" />
 
     <com.aranandroid.customview.squareview.SquareTextView
         android:layout_height="80dp"
@@ -148,6 +160,79 @@
                 android:layout_margin="@dimen/dp_10"
                 android:gravity="center"
                 android:text="异形矩形" />
+
+            <com.aranandroid.customview.squareview.SquareLinearLayout
+                android:layout_height="80dp"
+                android:layout_width="120dp"
+                app:line_width="1dp"
+                app:corner_left_top="20dp"
+                app:corner_left_bottom="10dp"
+                app:corner_right_top="5dp"
+                app:line_color="@color/colorAccent"
+                android:layout_margin="@dimen/dp_10"
+                android:gravity="center">
+                <TextView
+                    android:layout_width="70dp"
+                    android:layout_height="110dp"
+                    android:text="SquareLinearLayout"></TextView>
+            </com.aranandroid.customview.squareview.SquareLinearLayout>
+
+            <com.aranandroid.customview.squareview.SquareConstranintLayout
+                android:id="@+id/square_constranint_layout"
+                android:layout_height="80dp"
+                android:layout_width="120dp"
+                app:line_width="1dp"
+                app:corner_left_top="20dp"
+                app:corner_left_bottom="10dp"
+                app:corner_right_top="5dp"
+                app:line_color="@color/colorAccent"
+                android:layout_margin="@dimen/dp_10"
+                android:gravity="center">
+                <TextView
+                    android:layout_width="70dp"
+                    android:layout_height="110dp"
+                    android:text="SquareConstranintLayout"></TextView>
+            </com.aranandroid.customview.squareview.SquareConstranintLayout>
+
+
+            <com.aranandroid.customview.squareview.SquareButton
+                android:layout_height="80dp"
+                android:layout_width="120dp"
+                app:line_width="1dp"
+                app:corner_left_top="20dp"
+                app:corner_left_bottom="10dp"
+                app:corner_right_top="5dp"
+                app:line_color="@color/colorAccent"
+                android:layout_margin="@dimen/dp_10"
+                android:gravity="center"
+                android:text="SquareButton" />
+
+            <com.aranandroid.customview.squareview.SquareEdit
+                android:layout_height="80dp"
+                android:layout_width="120dp"
+                app:line_width="1dp"
+                app:corner_left_top="20dp"
+                app:corner_left_bottom="10dp"
+                app:corner_right_top="5dp"
+                app:line_color="@color/colorAccent"
+                android:layout_margin="@dimen/dp_10"
+                android:gravity="center"
+                android:text="SquareEdit" />
+
+
+            <com.aranandroid.customview.squareview.SquareTextEdit
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                app:background_color="@color/colorAccent"
+                app:corner="20dp"
+                android:layout_margin="@dimen/dp_10"
+                android:paddingLeft="@dimen/dp_10"
+                android:paddingRight="@dimen/dp_10"
+                app:key="姓名："
+                app:hint="请输入姓名"
+                >
+
+            </com.aranandroid.customview.squareview.SquareTextEdit>
         </LinearLayout>
     </ScrollView>
 </LinearLayout>
