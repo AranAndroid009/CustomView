@@ -2,17 +2,27 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
-
-    <TextView
-    android:id="@+id/text"
-    android:layout_width="wrap_content"
     android:layout_height="match_parent"
-    tools:ignore="MissingConstraints"></TextView>
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <TextView
+        android:id="@+id/text"
+        android:layout_width="wrap_content"
+
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:text="sdfds"></TextView>
+
     <EditText
         android:id="@+id/edit"
         android:layout_width="wrap_content"
+        android:layout_weight="1"
+        android:gravity="center_vertical|right"
+        android:background="@null"
         android:layout_height="match_parent"
-        app:layout_constraintRight_toRightOf="parent"></EditText>
+        android:singleLine="true"></EditText>
+</LinearLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
