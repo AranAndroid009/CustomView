@@ -1,22 +1,152 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <resources>
+
+    <!-- 圆角-->
+    <attr name="corner" format="dimension"/>
+    <attr name="corner_left_top" format="dimension"/>
+    <attr name="corner_right_top" format="dimension"/>
+    <attr name="corner_left_bottom" format="dimension"/>
+    <attr name="corner_right_bottom" format="dimension"/>
+    <!--        线宽-->
+    <attr name="line_width" format="dimension"/>
+    <!--        虚线宽度-->
+    <attr name="dash_width" format="dimension"/>
+    <!--        虚线间距-->
+    <attr name="dash_gap" format="dimension"/>
+    <!--        线颜色-->
+    <attr name="line_color" format="color"/>
+    <attr name="background_color" format="color"/>
+
+
+
+
+
+
+    <!-- 左边文字大小-->
+    <attr name="key_size" format="dimension"/>
+    <!--        左边文字颜色-->
+    <attr name="key_color" format="color"/>
+    <!--        左边文字-->
+    <attr name="key" format="string"/>
+
+    <attr name="value" format="string"/>
+
+
+
+
+
     <declare-styleable name="SquareTextView" >
         <!-- 圆角-->
-        <attr name="corner" format="dimension"/>
-        <attr name="corner_left_top" format="dimension"/>
-        <attr name="corner_right_top" format="dimension"/>
-        <attr name="corner_left_bottom" format="dimension"/>
-        <attr name="corner_right_bottom" format="dimension"/>
+        <attr name="corner" />
+        <attr name="corner_left_top" />
+        <attr name="corner_right_top" />
+        <attr name="corner_left_bottom" />
+        <attr name="corner_right_bottom" />
         <!--        线宽-->
-        <attr name="line_width" format="dimension"/>
+        <attr name="line_width" />
         <!--        虚线宽度-->
-        <attr name="dash_width" format="dimension"/>
+        <attr name="dash_width" />
         <!--        虚线间距-->
-        <attr name="dash_gap" format="dimension"/>
+        <attr name="dash_gap" />
         <!--        线颜色-->
-        <attr name="line_color" format="color"/>
-        <attr name="background_color" format="color"/>
+        <attr name="line_color" />
+        <attr name="background_color" />
     </declare-styleable>
+
+    <declare-styleable name="SquareRadioButton" >
+        <!-- 圆角-->
+        <attr name="corner" />
+        <attr name="corner_left_top" />
+        <attr name="corner_right_top" />
+        <attr name="corner_left_bottom" />
+        <attr name="corner_right_bottom" />
+        <!--        线宽-->
+        <attr name="line_width" />
+        <!--        虚线宽度-->
+        <attr name="dash_width" />
+        <!--        虚线间距-->
+        <attr name="dash_gap" />
+        <!--        线颜色-->
+        <attr name="line_color" />
+        <attr name="background_color" />
+    </declare-styleable>
+
+
+    <declare-styleable name="SquareButton" >
+        <!-- 圆角-->
+        <attr name="corner" />
+        <attr name="corner_left_top" />
+        <attr name="corner_right_top" />
+        <attr name="corner_left_bottom" />
+        <attr name="corner_right_bottom" />
+        <!--        线宽-->
+        <attr name="line_width" />
+        <!--        虚线宽度-->
+        <attr name="dash_width" />
+        <!--        虚线间距-->
+        <attr name="dash_gap" />
+        <!--        线颜色-->
+        <attr name="line_color" />
+        <attr name="background_color" />
+    </declare-styleable>
+
+    <declare-styleable name="SquareConstranintLayout" >
+        <!-- 圆角-->
+        <attr name="corner" />
+        <attr name="corner_left_top" />
+        <attr name="corner_right_top" />
+        <attr name="corner_left_bottom" />
+        <attr name="corner_right_bottom" />
+        <!--        线宽-->
+        <attr name="line_width" />
+        <!--        虚线宽度-->
+        <attr name="dash_width" />
+        <!--        虚线间距-->
+        <attr name="dash_gap" />
+        <!--        线颜色-->
+        <attr name="line_color" />
+        <attr name="background_color" />
+    </declare-styleable>
+
+
+    <declare-styleable name="SquareEdit" >
+        <!-- 圆角-->
+        <attr name="corner" />
+        <attr name="corner_left_top" />
+        <attr name="corner_right_top" />
+        <attr name="corner_left_bottom" />
+        <attr name="corner_right_bottom" />
+        <!--        线宽-->
+        <attr name="line_width" />
+        <!--        虚线宽度-->
+        <attr name="dash_width" />
+        <!--        虚线间距-->
+        <attr name="dash_gap" />
+        <!--        线颜色-->
+        <attr name="line_color" />
+        <attr name="background_color" />
+    </declare-styleable>
+
+
+    <declare-styleable name="SquareLinearLayout" >
+        <!-- 圆角-->
+        <attr name="corner" />
+        <attr name="corner_left_top" />
+        <attr name="corner_right_top" />
+        <attr name="corner_left_bottom" />
+        <attr name="corner_right_bottom" />
+        <!--        线宽-->
+        <attr name="line_width" />
+        <!--        虚线宽度-->
+        <attr name="dash_width" />
+        <!--        虚线间距-->
+        <attr name="dash_gap" />
+        <!--        线颜色-->
+        <attr name="line_color" />
+        <attr name="background_color" />
+    </declare-styleable>
+
+
 
     <declare-styleable name="SquareTextEdit" >
         <!-- 左边文字大小-->
@@ -32,9 +162,84 @@
 <!--        提示文字-->
         <attr name="hint" format="string"/>
 <!--        左边文字-->
-        <attr name="key" format="string"/>
+        <attr name="key"/>
 <!--        右边文字-->
-        <attr name="value" format="string"/>
+        <attr name="value" />
+
+        <!-- 圆角-->
+        <attr name="corner" />
+        <attr name="corner_left_top" />
+        <attr name="corner_right_top" />
+        <attr name="corner_left_bottom" />
+        <attr name="corner_right_bottom" />
+        <!--        线宽-->
+        <attr name="line_width" />
+        <!--        虚线宽度-->
+        <attr name="dash_width" />
+        <!--        虚线间距-->
+        <attr name="dash_gap" />
+        <!--        线颜色-->
+        <attr name="line_color" />
+        <attr name="background_color" />
     </declare-styleable>
+
+
+    <declare-styleable name="SquareTextText" >
+        <!-- 左边文字大小-->
+        <attr name="key_size" />
+        <!--        右边文字大小-->
+        <attr name="value_size" format="dimension"/>
+        <!--        左边文字颜色-->
+        <attr name="key_color" />
+        <!--        右边文字颜色-->
+        <attr name="value_color" format="color"/>
+        <!--        左边文字-->
+        <attr name="key" />
+        <!--        右边文字-->
+        <attr name="value"/>
+        <!-- 圆角-->
+        <attr name="corner" />
+        <attr name="corner_left_top" />
+        <attr name="corner_right_top" />
+        <attr name="corner_left_bottom" />
+        <attr name="corner_right_bottom" />
+        <!--        线宽-->
+        <attr name="line_width" />
+        <!--        虚线宽度-->
+        <attr name="dash_width" />
+        <!--        虚线间距-->
+        <attr name="dash_gap" />
+        <!--        线颜色-->
+        <attr name="line_color" />
+        <attr name="background_color" />
+    </declare-styleable>
+
+
+    <declare-styleable name="SquareTextImage" >
+        <!-- 左边文字大小-->
+        <attr name="key_size" />
+        <!--        左边文字颜色-->
+        <attr name="key_color" />
+        <!--        左边文字-->
+        <attr name="key" />
+        <!--        右边图片-->
+        <attr name="src" format="reference"/>
+        <!-- 圆角-->
+        <attr name="corner" />
+        <attr name="corner_left_top" />
+        <attr name="corner_right_top" />
+        <attr name="corner_left_bottom" />
+        <attr name="corner_right_bottom" />
+        <!--        线宽-->
+        <attr name="line_width" />
+        <!--        虚线宽度-->
+        <attr name="dash_width" />
+        <!--        虚线间距-->
+        <attr name="dash_gap" />
+        <!--        线颜色-->
+        <attr name="line_color" />
+        <attr name="background_color" />
+    </declare-styleable>
+
 
 </resources>

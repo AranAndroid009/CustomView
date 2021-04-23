@@ -121,7 +121,7 @@ open class SquareView(
                 drawableBuilder.corner(
                     floatArrayOf(
                         cornerlt, cornerlt, cornerrt, cornerrt,
-                        cornerlb, cornerlb, cornerrb, cornerrb
+                         cornerrb, cornerrb,cornerlb, cornerlb
                     )
                 )
         }

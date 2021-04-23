@@ -8,13 +8,14 @@ import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.view.View
 import android.widget.EditText
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.annotation.Nullable
 import androidx.constraintlayout.widget.ConstraintLayout
 import com.aranandroid.customview.R
 import com.blankj.utilcode.util.ConvertUtils
 
-class SquareTextEdit(
+class SquareTextImage(
     @Nullable context: Context?,
     @Nullable attrs: AttributeSet?,
     defStyleAttr: Int
@@ -25,51 +26,31 @@ class SquareTextEdit(
 
     val textview:TextView
 
-    val edittext:EditText
+    val imageView:ImageView
 
     var textsize = ConvertUtils.sp2px(14f).toFloat()
         set(value) {
             field = value
             textview.setTextSize(textsize)
         }
-    var editsize = ConvertUtils.sp2px(14f).toFloat()
-        set(value) {
-            field = value
-            edittext.setTextSize(editsize)
-        }
+
     var textcolor = Color.BLACK
         set(value) {
             field = value
             textview.setTextColor(textcolor)
-        }
-    var editcolor = Color.BLACK
-        set(value) {
-            field = value
-            edittext.setTextColor(editcolor)
-        }
-    var hintcolor = Color.GRAY
-        set(value) {
-            field = value
-            edittext.setHintTextColor(hintcolor)
-        }
-    var hint : String? = null
-        set(value) {
-            field = value
-            edittext.setHint(hint)
-
         }
     var key : String? = null
         set(value) {
             field = value
             textview.setText(key)
         }
-    var valueme : String? = null
+    var valueme : Int = 0
         set(value) {
             field = value
-            if(TextUtils.isEmpty(valueme)){
-                edittext.setText(null)
+            if(valueme<0){
+                imageView.setImageDrawable(null)
             }else{
-                edittext.setText(valueme)
+                imageView.setImageResource(valueme)
             }
         }
     val view: View
@@ -78,46 +59,29 @@ class SquareTextEdit(
     init {
         squareView = SquareView(context, attrs, defStyleAttr, this)
         val obtainStyledAttributes =
-            context!!.obtainStyledAttributes(attrs, R.styleable.SquareTextEdit)
-        view = LayoutInflater.from(context).inflate(R.layout.square_text_edit, this, true)
+            context!!.obtainStyledAttributes(attrs, R.styleable.SquareTextImage)
+        view = LayoutInflater.from(context).inflate(R.layout.square_text_image, this, true)
         textview = view.findViewById(R.id.text)
-        edittext = view.findViewById(R.id.edit)
+        imageView = view.findViewById(R.id.image)
 
         textsize = obtainStyledAttributes.getDimension(
-            R.styleable.SquareTextEdit_text_size,
-            (14F).toFloat()
-        )
-        editsize = obtainStyledAttributes.getDimension(
-            R.styleable.SquareTextEdit_edit_size,
+            R.styleable.SquareTextImage_key_size,
             (14F).toFloat()
         )
 
         textcolor = obtainStyledAttributes.getColor(
-            R.styleable.SquareTextEdit_text_color,
+            R.styleable.SquareTextImage_key_color,
             Color.BLACK
         )
 
-        editcolor = obtainStyledAttributes.getColor(
-            R.styleable.SquareTextEdit_edit_color,
-            Color.BLACK
-        )
-
-        hintcolor = obtainStyledAttributes.getColor(
-            R.styleable.SquareTextEdit_hint_color,
-            Color.GRAY
-        )
-
-        hint = obtainStyledAttributes.getString(
-            R.styleable.SquareTextEdit_hint
-        )
 
         key = obtainStyledAttributes.getString(
-            R.styleable.SquareTextEdit_key
+            R.styleable.SquareTextImage_key
         )
 
-        valueme = obtainStyledAttributes.getString(
-            R.styleable.SquareTextEdit_value
-        )
+        valueme = obtainStyledAttributes.getResourceId(
+            R.styleable.SquareTextImage_src
+        ,0)
 
 
 
