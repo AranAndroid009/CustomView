@@ -1,11 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<com.aranandroid.customview.title.TitleLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.SquareActivity"
-    android:orientation="horizontal">
+    tools:context=".ui.SquareActivity">
+    <com.aranandroid.customview.title.TitleView
+        android:background="@color/red"
+        android:layout_width="match_parent"
+        android:layout_height="60dp">
+    </com.aranandroid.customview.title.TitleView>
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -265,10 +269,10 @@
                 <RadioGroup
                     android:id="@+id/radio2"
                     android:gravity="center"
-                    android:layout_width="wrap_content"
+                    android:layout_width="200dp"
                     android:layout_height="match_parent">
 
-                    <LinearLayout
+                    <TableRow
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content">
                         <com.aranandroid.customview.squareview.SquareRadioButton
@@ -280,11 +284,12 @@
                             app:background_color="@color/colorAccent"
                             android:gravity="center"
                             android:text="K" />
-                    </LinearLayout>
-                    <LinearLayout
+                    </TableRow>
+                    <androidx.constraintlayout.widget.ConstraintLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content">
                         <com.aranandroid.customview.squareview.SquareRadioButton
+                            app:layout_constraintLeft_toLeftOf="parent"
                             android:id="@+id/f"
                             android:layout_height="20dp"
                             android:layout_width="@dimen/dp_40"
@@ -292,17 +297,21 @@
                             android:checked="true"
                             app:background_color="@color/colorAccent"
                             android:gravity="center"
-                            android:text="F" />
+                            android:text="F"
+                            tools:ignore="MissingConstraints" />
+
                         <com.aranandroid.customview.squareview.SquareRadioButton
-                            android:id="@+id/H"
-                            android:layout_marginTop="@dimen/dp_10"
+                            android:layout_margin="@dimen/dp_10"
+                            app:layout_constraintLeft_toRightOf="@+id/f"
+                            android:id="@+id/h"
                             android:layout_height="20dp"
                             android:layout_width="@dimen/dp_40"
                             app:corner="5dp"
                             app:background_color="@color/colorAccent"
                             android:gravity="center"
-                            android:text="H" />
-                    </LinearLayout>
+                            android:text="H"
+                            tools:ignore="MissingConstraints" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
 
                 </RadioGroup>
             </com.aranandroid.customview.squareview.SquareLinearLayout>
@@ -372,4 +381,4 @@
             </com.aranandroid.customview.squareview.SquareTextImage>
         </LinearLayout>
     </ScrollView>
-</LinearLayout>
+</com.aranandroid.customview.title.TitleLayout>
