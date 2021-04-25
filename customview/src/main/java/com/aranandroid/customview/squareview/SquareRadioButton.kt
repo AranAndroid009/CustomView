@@ -20,10 +20,11 @@ class SquareRadioButton(
     AppCompatRadioButton(context!!, attrs, defStyleAttr) {
 
     var squareView: SquareView
+    var squareSelectedView: SquareSelectedView
 
     init {
+        squareSelectedView = SquareSelectedView(context, attrs, defStyleAttr, this)
         squareView = SquareView(context, attrs, defStyleAttr, this)
-        background = null
         setOnClickListener(null)
     }
 
@@ -67,9 +68,9 @@ class SquareRadioButton(
                 val childAt = radioGroup.getChildAt(i)
                 if (childAt is SquareRadioButton) {
                     if ((parentme as RadioGroup)?.checkedRadioButtonId == childAt.id) {
-                        background = squareView.getBackGround()
+                        background = squareSelectedView.getBackGround()
                     } else {
-                        childAt.background = null
+                        childAt.background = squareView.getBackGround()
                     }
                 }
             }

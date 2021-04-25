@@ -6,7 +6,10 @@
     android:layout_height="match_parent"
     tools:context=".ui.SquareActivity">
     <com.aranandroid.customview.title.TitleView
-        android:background="@color/red"
+        android:paddingLeft="12dp"
+        android:paddingRight="12dp"
+        app:back="true"
+        android:background="@color/colorAccent"
         android:layout_width="match_parent"
         android:layout_height="60dp">
     </com.aranandroid.customview.title.TitleView>
@@ -223,6 +226,8 @@
                     app:corner="5dp"
                     android:checked="true"
                     app:background_color="@color/colorAccent"
+                    app:selected_corner="5dp"
+                    app:selected_background_color="@color/colorPrimary"
                     android:gravity="center"
                     android:text="A" />
                 <com.aranandroid.customview.squareview.SquareRadioButton
@@ -232,6 +237,8 @@
                     android:layout_width="@dimen/dp_40"
                     app:corner="5dp"
                     app:background_color="@color/colorAccent"
+                    app:selected_corner="5dp"
+                    app:selected_background_color="@color/colorPrimary"
                     android:gravity="center"
                     android:text="B" />
                 <com.aranandroid.customview.squareview.SquareRadioButton
@@ -241,6 +248,8 @@
                     android:layout_width="@dimen/dp_40"
                     app:corner="5dp"
                     app:background_color="@color/colorAccent"
+                    app:selected_corner="5dp"
+                    app:selected_background_color="@color/colorPrimary"
                     android:gravity="center"
                     android:text="C" />
                 <com.aranandroid.customview.squareview.SquareRadioButton
@@ -250,6 +259,8 @@
                     android:layout_width="@dimen/dp_40"
                     app:corner="5dp"
                     app:background_color="@color/colorAccent"
+                    app:selected_corner="5dp"
+                    app:selected_background_color="@color/colorPrimary"
                     android:gravity="center"
                     android:text="D" />
             </RadioGroup>
@@ -279,9 +290,9 @@
                             android:id="@+id/k"
                             android:layout_height="20dp"
                             android:layout_width="@dimen/dp_40"
-                            app:corner="5dp"
+                            app:selected_corner="5dp"
                             android:checked="true"
-                            app:background_color="@color/colorAccent"
+                            app:selected_background_color="@color/colorAccent"
                             android:gravity="center"
                             android:text="K" />
                     </TableRow>
@@ -293,9 +304,9 @@
                             android:id="@+id/f"
                             android:layout_height="20dp"
                             android:layout_width="@dimen/dp_40"
-                            app:corner="5dp"
+                            app:selected_corner="5dp"
                             android:checked="true"
-                            app:background_color="@color/colorAccent"
+                            app:selected_background_color="@color/colorAccent"
                             android:gravity="center"
                             android:text="F"
                             tools:ignore="MissingConstraints" />
@@ -306,8 +317,8 @@
                             android:id="@+id/h"
                             android:layout_height="20dp"
                             android:layout_width="@dimen/dp_40"
-                            app:corner="5dp"
-                            app:background_color="@color/colorAccent"
+                            app:selected_corner="5dp"
+                            app:selected_background_color="@color/colorAccent"
                             android:gravity="center"
                             android:text="H"
                             tools:ignore="MissingConstraints" />
@@ -343,6 +354,22 @@
                 app:hint="请输入姓名"
                 >
             </com.aranandroid.customview.squareview.SquareTextEdit>
+
+            <com.aranandroid.customview.squareview.SquareTextEdit
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                app:background_color="@color/colorPrimary"
+                app:corner="20dp"
+                android:layout_margin="20dp"
+                android:padding="10dp"
+                app:gravity_value="left"
+                app:gravity_key="left"
+                app:single="false"
+                app:key="多行|左边文体："
+                app:hint="请输入姓名"
+                >
+            </com.aranandroid.customview.squareview.SquareTextEdit>
+
             <com.aranandroid.customview.squareview.SquareTextText
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/dp_40"

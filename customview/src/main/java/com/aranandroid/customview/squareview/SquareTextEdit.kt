@@ -5,6 +5,7 @@ import android.graphics.Canvas
 import android.graphics.Color
 import android.text.TextUtils
 import android.util.AttributeSet
+import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
 import android.widget.EditText
@@ -23,16 +24,16 @@ class SquareTextEdit(
 
     var squareView: SquareView
 
-    val textview:TextView
+    val textview: TextView
 
-    val edittext:EditText
+    val edittext: EditText
 
-    var textsize = ConvertUtils.sp2px(14f).toFloat()
+    var textsize = 14f
         set(value) {
             field = value
             textview.setTextSize(textsize)
         }
-    var editsize = ConvertUtils.sp2px(14f).toFloat()
+    var editsize = 14f
         set(value) {
             field = value
             edittext.setTextSize(editsize)
@@ -52,26 +53,43 @@ class SquareTextEdit(
             field = value
             edittext.setHintTextColor(hintcolor)
         }
-    var hint : String? = null
+    var hint: String? = null
         set(value) {
             field = value
             edittext.setHint(hint)
 
         }
-    var key : String? = null
+    var key: String? = null
         set(value) {
             field = value
             textview.setText(key)
         }
-    var valueme : String? = null
+    var valueme: String? = null
         set(value) {
             field = value
-            if(TextUtils.isEmpty(valueme)){
+            if (TextUtils.isEmpty(valueme)) {
                 edittext.setText(null)
-            }else{
+            } else {
                 edittext.setText(valueme)
             }
         }
+    var gravityKey = 0
+        set(value) {
+            field = value
+            textview.gravity = field
+        }
+    var gravityValue = 0
+        set(value) {
+            field = value
+            edittext.gravity = field
+        }
+
+    var single = false
+        set(value) {
+            field = value
+            edittext.isSingleLine = field
+        }
+
     val view: View
 
 
@@ -119,6 +137,9 @@ class SquareTextEdit(
             R.styleable.SquareTextEdit_value
         )
 
+        gravityKey = obtainStyledAttributes.getInt(R.styleable.SquareTextEdit_gravity_key,Gravity.CENTER)
+        gravityValue = obtainStyledAttributes.getInt(R.styleable.SquareTextEdit_gravity_value,Gravity.CENTER_VERTICAL or Gravity.RIGHT)
+        single = obtainStyledAttributes.getBoolean(R.styleable.SquareTextEdit_single,true)
 
 
     }
@@ -132,8 +153,6 @@ class SquareTextEdit(
     constructor(context: Context?) : this(context, null) {
 
     }
-
-
 
 
 }

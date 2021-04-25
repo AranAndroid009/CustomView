@@ -5,9 +5,9 @@ import android.graphics.Canvas
 import android.graphics.Color
 import android.text.TextUtils
 import android.util.AttributeSet
+import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
-import android.widget.EditText
 import android.widget.TextView
 import androidx.annotation.Nullable
 import androidx.constraintlayout.widget.ConstraintLayout
@@ -27,12 +27,12 @@ class SquareTextText(
 
     val valueView:TextView
 
-    var keysize = ConvertUtils.sp2px(14f).toFloat()
+    var keysize = 14f
         set(value) {
             field = value
             keyView.setTextSize(keysize)
         }
-    var valuesize = ConvertUtils.sp2px(14f).toFloat()
+    var valuesize = 14f
         set(value) {
             field = value
             valueView.setTextSize(valuesize)
@@ -61,6 +61,22 @@ class SquareTextText(
             }else{
                 valueView.setText(valueme)
             }
+        }
+    var gravityKey = 0
+        set(value) {
+            field = value
+            valueView.gravity = field
+        }
+    var gravityValue = 0
+        set(value) {
+            field = value
+            valueView.gravity = field
+        }
+
+    var single = false
+        set(value) {
+            field = value
+            valueView.isSingleLine = field
         }
     val view: View
 
@@ -99,6 +115,11 @@ class SquareTextText(
         valueme = obtainStyledAttributes.getString(
             R.styleable.SquareTextText_value
         )
+
+        gravityKey = obtainStyledAttributes.getInt(R.styleable.SquareTextText_gravity_key, Gravity.CENTER)
+        gravityValue = obtainStyledAttributes.getInt(R.styleable.SquareTextText_gravity_value,
+            Gravity.CENTER_VERTICAL or Gravity.RIGHT)
+        single = obtainStyledAttributes.getBoolean(R.styleable.SquareTextText_single,true)
 
 
 

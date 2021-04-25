@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<resources>
+    
+
+
+
+    <declare-styleable name="TitleView">
+        <!-- 左边文字大小-->
+        <attr name="left_size" format="dimension" />
+        <!--        左边文字颜色-->
+        <attr name="left_color" format="color" />
+        <!--        左边文字-->
+        <attr name="left" format="string" />
+        <!--       图片、背景实现 -->
+        <attr name="left_src" format="reference" />
+        <!--        是否返回功能-->
+        <attr name="back" format="boolean" />
+
+        <!-- 标题文字大小-->
+        <attr name="title_size" format="dimension" />
+        <!--        标题文字颜色-->
+        <attr name="title_color" format="color" />
+        <!--        标题文字-->
+        <attr name="title" format="string" />
+
+        <!-- 右边文字大小-->
+        <attr name="right_size" format="dimension" />
+        <!--        右边文字颜色-->
+        <attr name="right_color" format="color" />
+        <!--        右边文字-->
+        <attr name="right" format="string" />
+        <!--        图片 、背景实现-->
+        <attr name="right_src" format="reference" />
+    </declare-styleable>
+
+
+</resources>

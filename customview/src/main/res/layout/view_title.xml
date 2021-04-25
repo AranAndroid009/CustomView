@@ -7,9 +7,11 @@
 
     <TextView
         android:id="@+id/left"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         android:layout_width="wrap_content"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:gravity="center"
         android:text=""></TextView>
 
@@ -17,18 +19,23 @@
         android:id="@+id/title"
         app:layout_constraintLeft_toLeftOf="@+id/left"
         app:layout_constraintRight_toRightOf="@+id/right"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
         android:layout_width="wrap_content"
         android:text="Title"
+        android:textStyle="bold"
         android:gravity="center_vertical|right"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:singleLine="true"></TextView>
 
     <TextView
         android:id="@+id/right"
         app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
         android:layout_width="wrap_content"
         android:gravity="center_vertical|right"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:singleLine="true"></TextView>
 
 

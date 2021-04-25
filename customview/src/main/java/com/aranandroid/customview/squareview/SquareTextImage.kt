@@ -28,7 +28,7 @@ class SquareTextImage(
 
     val imageView:ImageView
 
-    var textsize = ConvertUtils.sp2px(14f).toFloat()
+    var textsize = 14f
         set(value) {
             field = value
             textview.setTextSize(textsize)
