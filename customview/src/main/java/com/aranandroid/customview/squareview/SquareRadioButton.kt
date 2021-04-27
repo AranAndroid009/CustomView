@@ -52,6 +52,7 @@ class SquareRadioButton(
         super.setOnClickListener(onClickListener)
     }
 
+
     private fun refreshState() {
         var parenttemp: ViewParent? = parent
         while (parenttemp !is RadioGroup) {
@@ -91,6 +92,7 @@ class SquareRadioButton(
 
 
     }
+
 
     override fun draw(canvas: Canvas?) {
         super.draw(canvas)

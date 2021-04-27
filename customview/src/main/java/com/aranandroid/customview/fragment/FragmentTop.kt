@@ -8,6 +8,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.LinearLayout
+import android.widget.RadioButton
 import android.widget.RadioGroup
 import androidx.core.view.children
 import androidx.fragment.app.Fragment
@@ -31,12 +32,10 @@ class FragmentTop(context: Context?, attrs: AttributeSet?) : LinearLayout(contex
             field = value
             radio.setOnCheckedChangeListener(RadioGroup.OnCheckedChangeListener { group, checkedId ->
                 fragments?.keys?.let {
-                    var i = 0
-                    for (key in it) {
+                    for ((i, key) in it.withIndex()) {
                         if(checkedId == key){
                             viewPager.setCurrentItem(i,true)
                         }
-                        i++
                     }
                 }
             })
@@ -47,7 +46,6 @@ class FragmentTop(context: Context?, attrs: AttributeSet?) : LinearLayout(contex
             viewPager.offscreenPageLimit = 3
             viewPager.addOnPageChangeListener(object : OnPageChangeListener{
                 override fun onPageScrollStateChanged(state: Int) {
-                    TODO("Not yet implemented")
                 }
 
                 override fun onPageScrolled(
@@ -55,18 +53,14 @@ class FragmentTop(context: Context?, attrs: AttributeSet?) : LinearLayout(contex
                     positionOffset: Float,
                     positionoffsetpixels: Int
                 ) {
-                    TODO("Not yet implemented")
                 }
 
                 override fun onPageSelected(position: Int) {
-                    TODO("Not yet implemented")
                     fragments?.keys?.let {
-                        var i = 0
-                        for (key in it) {
+                        for ((i, key) in it.withIndex()) {
                             if(position == i){
-                                radio.check(key)
+                                radio.findViewById<RadioButton>(key).performClick()
                             }
-                            i++
                         }
                     }
                 }

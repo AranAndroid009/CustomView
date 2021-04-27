@@ -15,11 +15,11 @@
         tools:ignore="MissingConstraints">
     </RadioGroup>
     <androidx.viewpager.widget.ViewPager
-        android:background="@color/cardview_dark_background"
         android:id="@+id/pager"
         app:layout_constraintTop_toBottomOf="@+id/radio"
+        app:layout_constraintBottom_toBottomOf="parent"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="0dp">
     </androidx.viewpager.widget.ViewPager>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

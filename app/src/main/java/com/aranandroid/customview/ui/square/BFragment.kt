@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.aranandroid.customview.R
 
-class BFragment() : Fragment(R.layout.fragment_a) {
+class BFragment() : Fragment(R.layout.fragment_b) {
 
 
 }

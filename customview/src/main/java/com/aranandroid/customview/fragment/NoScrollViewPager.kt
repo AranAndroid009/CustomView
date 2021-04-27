@@ -12,7 +12,7 @@ import androidx.viewpager.widget.ViewPager
  * 创建时间：2021
  */
 class NoScrollViewPager : ViewPager {
-    private val DISABLE = false
+    val DISABLE = false
 
     constructor(context: Context?) : super(context!!) {}
     constructor(context: Context?, attrs: AttributeSet?) : super(
