@@ -17,6 +17,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".ui.SquareActivity" android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
+        <activity android:name=".ui.SquareMoreActivity" android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
     </application>
 
 </manifest>

@@ -7,6 +7,7 @@ import android.widget.LinearLayout
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.aranandroid.customview.ui.SquareActivity
+import com.aranandroid.customview.ui.SquareMoreActivity
 import kotlinx.android.synthetic.main.item_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -15,11 +16,12 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         val listView = findViewById<RecyclerView>(R.id.listview)
         listView.layoutManager = LinearLayoutManager(this)
-        val mainAdapter = MainAdapter(arrayListOf("ShapeTextView"))
+        val mainAdapter = MainAdapter(arrayListOf("ShapeTextView","SquareMoreView"))
         mainAdapter.setOnItemClickListener { adapter, view, position ->
             val item = mainAdapter.getItem(position)
             when(item){
                 "ShapeTextView" -> startActivity(Intent(this,SquareActivity::class.java))
+                "SquareMoreView" -> startActivity(Intent(this, SquareMoreActivity::class.java))
             }
 
         }
