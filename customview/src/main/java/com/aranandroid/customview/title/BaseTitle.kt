@@ -32,7 +32,9 @@ open class BaseTitle(context: Context?, attrs: AttributeSet?, defStyleAttr: Int)
         super.dispatchDraw(canvas)
         if (context is Activity) {
             if (parent is TitleLayout) {
-                ImmersionBar.with(context as Activity).titleBar(this).keyboardEnable(true)
+                ImmersionBar.with(context as Activity).titleBar(this)
+                    .transparentStatusBar()
+                    .keyboardEnable(true)
                     .init()
 
             }
