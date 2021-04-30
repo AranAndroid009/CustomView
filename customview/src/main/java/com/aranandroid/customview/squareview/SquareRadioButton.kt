@@ -1,7 +1,9 @@
 package com.aranandroid.customview.squareview
 
 import android.content.Context
+import android.content.res.ColorStateList
 import android.graphics.Canvas
+import android.graphics.Color
 import android.util.AttributeSet
 import android.view.View
 import android.view.View.OnClickListener
@@ -12,6 +14,7 @@ import android.widget.RadioGroup
 import androidx.annotation.Nullable
 import androidx.appcompat.widget.AppCompatRadioButton
 import androidx.core.view.children
+import com.aranandroid.customview.R
 
 class SquareRadioButton(
     @Nullable context: Context?,
@@ -25,12 +28,24 @@ class SquareRadioButton(
 
     var fristCheck = false
 
-    init {
+    var oldTextColors: Int = Color.BLACK
+
+    var selectTextColor = Color.BLACK
+
+        init {
         squareSelectedView = SquareSelectedView(context, attrs, defStyleAttr, this)
         squareView = SquareView(context, attrs, defStyleAttr, this)
         setOnClickListener(null)
         fristCheck = isChecked
-    }
+            val obtainStyledAttributes =
+                context?.obtainStyledAttributes(attrs, R.styleable.SquareRadioButton)
+            obtainStyledAttributes.let {
+                selectTextColor = it?.getColor(
+                    R.styleable.SquareRadioButton_selected_text_color,
+                    Color.BLACK
+                )!!
+            }
+        }
 
     constructor(context: Context?, attrs: AttributeSet?) : this(
         context,
@@ -78,8 +93,10 @@ class SquareRadioButton(
                 if (childAt is SquareRadioButton) {
                     if ((parentme as RadioGroup)?.checkedRadioButtonId == childAt.id) {
                         background = squareSelectedView.getBackGround()
+                        setTextColor(selectTextColor)
                     } else {
                         childAt.background = squareView.getBackGround()
+                        childAt.setOldTextColor()
                     }
                 }
             }
@@ -93,11 +110,16 @@ class SquareRadioButton(
 
     }
 
+    private fun setOldTextColor() {
+        setTextColor(oldTextColors)
+    }
+
 
     override fun draw(canvas: Canvas?) {
         super.draw(canvas)
         if (fristCheck){
             fristCheck = false
+            oldTextColors = this.currentTextColor
             refreshState()
         }
     }
