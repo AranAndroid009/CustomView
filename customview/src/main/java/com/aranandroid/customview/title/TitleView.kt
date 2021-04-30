@@ -4,6 +4,7 @@ import android.app.Activity
 import android.content.Context
 import android.graphics.Color
 import android.util.AttributeSet
+import android.util.TypedValue
 import android.view.LayoutInflater
 import android.view.View
 import android.widget.LinearLayout
@@ -11,6 +12,7 @@ import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
 import com.aranandroid.customview.R
 import com.aranandroid.customview.squareview.SquareView
+import com.blankj.utilcode.util.SizeUtils.sp2px
 
 class TitleView(context: Context, attrs: AttributeSet?, defStyleAttr: Int) :
     BaseTitle(context!!, attrs, defStyleAttr) {
@@ -23,10 +25,10 @@ class TitleView(context: Context, attrs: AttributeSet?, defStyleAttr: Int) :
 
 
     // 左边文字大小
-    var leftSize = 11F
+    var leftSize = sp2px(11f).toFloat()
         set(value) {
             field = value
-            leftView.setTextSize(leftSize)
+            leftView.setTextSize(TypedValue.COMPLEX_UNIT_PX,leftSize)
         }
 
     // 左边文字颜色
@@ -68,10 +70,10 @@ class TitleView(context: Context, attrs: AttributeSet?, defStyleAttr: Int) :
         }
 
     // 标题文字大小
-    var titleSize = 14f
+    var titleSize = sp2px(14f).toFloat()
         set(value) {
             field = value
-            titleView.setTextSize(titleSize)
+            titleView.setTextSize(TypedValue.COMPLEX_UNIT_PX,titleSize)
         }
 
     // 标题文字颜色
@@ -89,10 +91,10 @@ class TitleView(context: Context, attrs: AttributeSet?, defStyleAttr: Int) :
         }
 
     // 右边文字大小
-    var rightSize = 11f
+    var rightSize = sp2px(11f).toFloat()
         set(value) {
             field = value
-            rightView.setTextSize(field)
+            rightView.setTextSize(TypedValue.COMPLEX_UNIT_PX,field)
         }
 
     // 右边文字颜色
@@ -122,11 +124,11 @@ class TitleView(context: Context, attrs: AttributeSet?, defStyleAttr: Int) :
     init {
         view = LayoutInflater.from(context).inflate(R.layout.view_title, this, true)
         leftView = view.findViewById(R.id.left)
-        rightView = view.findViewById(R.id.left)
-        titleView = view.findViewById(R.id.left)
+        rightView = view.findViewById(R.id.right)
+        titleView = view.findViewById(R.id.title)
         val obtainStyledAttributes = context.obtainStyledAttributes(attrs, R.styleable.TitleView)
         // 左边文字大小
-        leftSize = obtainStyledAttributes.getDimension(R.styleable.TitleView_left_size,11f)
+        leftSize = obtainStyledAttributes.getDimension(R.styleable.TitleView_left_size,sp2px(11f).toFloat())
         // 左边文字颜色
         leftColor = obtainStyledAttributes.getColor(R.styleable.TitleView_left_color,Color.BLACK)
         // 左边文字
@@ -139,16 +141,18 @@ class TitleView(context: Context, attrs: AttributeSet?, defStyleAttr: Int) :
         back = obtainStyledAttributes.getBoolean(R.styleable.TitleView_back,false)
 
         // 标题文字大小
-        titleSize = obtainStyledAttributes.getDimension(R.styleable.TitleView_title_size,14f)
+        titleSize = obtainStyledAttributes.getDimension(R.styleable.TitleView_title_size,
+            sp2px(14f).toFloat()
+        )
 
         // 标题文字颜色
         titleColor = obtainStyledAttributes.getColor(R.styleable.TitleView_title_color,Color.BLACK)
 
         // 标题文字
-        obtainStyledAttributes.getString(R.styleable.TitleView_left)?.let { title = it }
+        obtainStyledAttributes.getString(R.styleable.TitleView_title)?.let { title = it }
 
         // 右边文字大小
-        rightSize = obtainStyledAttributes.getDimension(R.styleable.TitleView_right_size,11f)
+        rightSize = obtainStyledAttributes.getDimension(R.styleable.TitleView_right_size,sp2px(11f).toFloat())
 
 
         // 右边文字颜色

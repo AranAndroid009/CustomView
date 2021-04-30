@@ -9,10 +9,14 @@
         android:paddingLeft="12dp"
         android:paddingRight="12dp"
         app:back="true"
+        app:title="pppp"
+        app:title_color="@color/red"
+        app:title_size="16sp"
         android:background="@color/colorAccent"
         android:layout_width="match_parent"
         android:layout_height="60dp">
     </com.aranandroid.customview.title.TitleView>
+
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">

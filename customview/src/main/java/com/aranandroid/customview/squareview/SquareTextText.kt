@@ -5,6 +5,7 @@ import android.graphics.Canvas
 import android.graphics.Color
 import android.text.TextUtils
 import android.util.AttributeSet
+import android.util.TypedValue
 import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
@@ -13,6 +14,7 @@ import androidx.annotation.Nullable
 import androidx.constraintlayout.widget.ConstraintLayout
 import com.aranandroid.customview.R
 import com.blankj.utilcode.util.ConvertUtils
+import com.blankj.utilcode.util.SizeUtils
 
 class SquareTextText(
     @Nullable context: Context?,
@@ -27,15 +29,15 @@ class SquareTextText(
 
     val valueView:TextView
 
-    var keysize = 14f
+    var keysize = SizeUtils.sp2px(14f).toFloat()
         set(value) {
             field = value
-            keyView.setTextSize(keysize)
+            keyView.setTextSize(TypedValue.COMPLEX_UNIT_PX,keysize)
         }
-    var valuesize = 14f
+    var valuesize = SizeUtils.sp2px(14f).toFloat()
         set(value) {
             field = value
-            valueView.setTextSize(valuesize)
+            valueView.setTextSize(TypedValue.COMPLEX_UNIT_PX,valuesize)
         }
     var keycolor = Color.BLACK
         set(value) {
@@ -91,11 +93,10 @@ class SquareTextText(
 
         keysize = obtainStyledAttributes.getDimension(
             R.styleable.SquareTextText_key_size,
-            (14F).toFloat()
-        )
+            SizeUtils.sp2px(14f).toFloat()        )
         valuesize = obtainStyledAttributes.getDimension(
             R.styleable.SquareTextText_value_size,
-            (14F).toFloat()
+            SizeUtils.sp2px(14f).toFloat()
         )
 
         keycolor = obtainStyledAttributes.getColor(

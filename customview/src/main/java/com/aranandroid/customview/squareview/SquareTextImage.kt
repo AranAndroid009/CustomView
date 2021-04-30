@@ -5,6 +5,7 @@ import android.graphics.Canvas
 import android.graphics.Color
 import android.text.TextUtils
 import android.util.AttributeSet
+import android.util.TypedValue
 import android.view.LayoutInflater
 import android.view.View
 import android.widget.EditText
@@ -14,6 +15,7 @@ import androidx.annotation.Nullable
 import androidx.constraintlayout.widget.ConstraintLayout
 import com.aranandroid.customview.R
 import com.blankj.utilcode.util.ConvertUtils
+import com.blankj.utilcode.util.SizeUtils.sp2px
 
 class SquareTextImage(
     @Nullable context: Context?,
@@ -28,10 +30,11 @@ class SquareTextImage(
 
     val imageView:ImageView
 
-    var textsize = 14f
+    var textsize = sp2px(14f).toFloat()
+
         set(value) {
             field = value
-            textview.setTextSize(textsize)
+            textview.setTextSize(TypedValue.COMPLEX_UNIT_PX,textsize)
         }
 
     var textcolor = Color.BLACK
@@ -66,7 +69,7 @@ class SquareTextImage(
 
         textsize = obtainStyledAttributes.getDimension(
             R.styleable.SquareTextImage_key_size,
-            (14F).toFloat()
+            sp2px(14F).toFloat()
         )
 
         textcolor = obtainStyledAttributes.getColor(

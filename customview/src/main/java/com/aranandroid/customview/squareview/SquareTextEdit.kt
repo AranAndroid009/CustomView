@@ -5,6 +5,7 @@ import android.graphics.Canvas
 import android.graphics.Color
 import android.text.TextUtils
 import android.util.AttributeSet
+import android.util.TypedValue
 import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
@@ -14,6 +15,7 @@ import androidx.annotation.Nullable
 import androidx.constraintlayout.widget.ConstraintLayout
 import com.aranandroid.customview.R
 import com.blankj.utilcode.util.ConvertUtils
+import com.blankj.utilcode.util.SizeUtils.sp2px
 
 class SquareTextEdit(
     @Nullable context: Context?,
@@ -28,15 +30,15 @@ class SquareTextEdit(
 
     val edittext: EditText
 
-    var textsize = 14f
+    var textsize = sp2px(14f).toFloat()
         set(value) {
             field = value
-            textview.setTextSize(textsize)
+            textview.setTextSize(TypedValue.COMPLEX_UNIT_PX,textsize)
         }
-    var editsize = 14f
+    var editsize = sp2px(14f).toFloat()
         set(value) {
             field = value
-            edittext.setTextSize(editsize)
+            edittext.setTextSize(TypedValue.COMPLEX_UNIT_PX,editsize)
         }
     var textcolor = Color.BLACK
         set(value) {
@@ -103,11 +105,11 @@ class SquareTextEdit(
 
         textsize = obtainStyledAttributes.getDimension(
             R.styleable.SquareTextEdit_text_size,
-            (14F).toFloat()
+            sp2px(14f).toFloat()
         )
         editsize = obtainStyledAttributes.getDimension(
             R.styleable.SquareTextEdit_edit_size,
-            (14F).toFloat()
+            sp2px(14f).toFloat()
         )
 
         textcolor = obtainStyledAttributes.getColor(
