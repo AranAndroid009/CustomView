@@ -22,7 +22,7 @@ class SquareEdit(
     constructor(context: Context?, attrs: AttributeSet?) : this(
         context,
         attrs,
-        android.R.attr.textViewStyle
+        android.R.attr.editTextStyle
     )
 
     constructor(context: Context?) : this(context, null) {

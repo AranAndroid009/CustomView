@@ -25,7 +25,7 @@
 
 
 
-    <com.aranandroid.customview.squareview.SquareTextView
+    <com.aranandroid.customview.squareview.SquareEdit
         android:id="@+id/hollow_rectangle"
         android:layout_height="80dp"
         android:layout_width="120dp"
