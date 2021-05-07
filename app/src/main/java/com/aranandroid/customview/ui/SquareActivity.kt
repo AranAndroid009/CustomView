@@ -26,7 +26,7 @@ class SquareActivity : AppCompatActivity() {
 
 
         GlobalScope.launch {
-            repeat(8900909) {
+            repeat(89) {
                 val findViewById = findViewById<RadioButton>(radio2.checkedRadioButtonId)
                 println("pppid"+findViewById?.text)
                 delay(1000)

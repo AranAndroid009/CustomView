@@ -1,8 +1,10 @@
 package com.aranandroid.customview.squareview
 
 import android.content.Context
-import android.graphics.Canvas
 import android.graphics.Color
+import android.text.InputFilter
+import android.text.InputType
+import android.text.Spanned
 import android.text.TextUtils
 import android.util.AttributeSet
 import android.util.TypedValue
@@ -14,8 +16,10 @@ import android.widget.TextView
 import androidx.annotation.Nullable
 import androidx.constraintlayout.widget.ConstraintLayout
 import com.aranandroid.customview.R
-import com.blankj.utilcode.util.ConvertUtils
 import com.blankj.utilcode.util.SizeUtils.sp2px
+import java.util.regex.Matcher
+import java.util.regex.Pattern
+
 
 class SquareTextEdit(
     @Nullable context: Context?,
@@ -92,6 +96,55 @@ class SquareTextEdit(
             edittext.isSingleLine = field
         }
 
+    var typeValue = InputType.TYPE_CLASS_TEXT
+        set(value) {
+            field = value
+            edittext.inputType = field
+        }
+
+    var maxLengthValue = 30
+        set(value) {
+            field = value
+            edittext.filters = arrayOf(NameLengthFilter(field))
+        }
+
+    private class NameLengthFilter(private val max:Int) : InputFilter {
+
+        private fun getChineseCount(str: String): Int {
+            var count = 0
+            val regEx = "[\\u4e00-\\u9fa5]" // unicode编码，判断是否为汉字
+
+            val p: Pattern = Pattern.compile(regEx)
+            val m: Matcher = p.matcher(str)
+            while (m.find()) {
+                for (i in 0..m.groupCount()) {
+                    count = count + 1
+                }
+            }
+            return count
+        }
+
+        override fun filter(
+            source: CharSequence?,
+            start: Int,
+            end: Int,
+            dest: Spanned?,
+            dstart: Int,
+            dend: Int
+        ): CharSequence {
+            val destCount: Int = dest.toString().length + getChineseCount(dest.toString())
+            val sourceCount: Int = source.toString().length + getChineseCount(source.toString())
+            return if (destCount + sourceCount > max) {
+                // Toast.makeText(MainActivity.this, getString(R.string.count),
+                // Toast.LENGTH_SHORT).show();
+                ""
+            } else {
+                source!!
+            }
+        }
+    }
+
+
     val view: View
 
 
@@ -142,6 +195,8 @@ class SquareTextEdit(
         gravityKey = obtainStyledAttributes.getInt(R.styleable.SquareTextEdit_gravity_key,Gravity.CENTER)
         gravityValue = obtainStyledAttributes.getInt(R.styleable.SquareTextEdit_gravity_value,Gravity.CENTER_VERTICAL or Gravity.RIGHT)
         single = obtainStyledAttributes.getBoolean(R.styleable.SquareTextEdit_single,true)
+        typeValue = obtainStyledAttributes.getInt(R.styleable.SquareTextEdit_type_value,InputType.TYPE_CLASS_TEXT)
+        maxLengthValue = obtainStyledAttributes.getInt(R.styleable.SquareTextEdit_max_length_value,30)
 
 
     }

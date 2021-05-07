@@ -20,9 +20,13 @@
         <attr name="hint" format="string" />
         <!--        左边文字-->
         <attr name="key" />
-        <!--        右边文字-->
+        <!-- 右边文字-->
         <attr name="value" />
-        <!--        是否单行-->
+        <!-- edit类型-->
+        <attr name="type_value"/>
+        <!-- edit 最大长度-->
+        <attr name="max_length_value" format="integer"/>
+        <!-- 是否单行-->
         <attr name="single"/>
 
         <attr name="gravity_key"/>
