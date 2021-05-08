@@ -40,4 +40,6 @@ open class BaseTitle(context: Context?, attrs: AttributeSet?, defStyleAttr: Int)
             }
         }
     }
+
+
 }

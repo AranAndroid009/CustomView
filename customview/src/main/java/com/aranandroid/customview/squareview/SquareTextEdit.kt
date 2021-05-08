@@ -2,10 +2,7 @@ package com.aranandroid.customview.squareview
 
 import android.content.Context
 import android.graphics.Color
-import android.text.InputFilter
-import android.text.InputType
-import android.text.Spanned
-import android.text.TextUtils
+import android.text.*
 import android.util.AttributeSet
 import android.util.TypedValue
 import android.view.Gravity
@@ -15,8 +12,16 @@ import android.widget.EditText
 import android.widget.TextView
 import androidx.annotation.Nullable
 import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.databinding.BindingAdapter
+import androidx.databinding.InverseBindingAdapter
+import androidx.databinding.InverseBindingListener
+import androidx.lifecycle.LifecycleOwner
+import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.Observer
 import com.aranandroid.customview.R
+import com.blankj.utilcode.util.CloneUtils
 import com.blankj.utilcode.util.SizeUtils.sp2px
+import com.blankj.utilcode.util.ThreadUtils
 import java.util.regex.Matcher
 import java.util.regex.Pattern
 
@@ -210,6 +215,60 @@ class SquareTextEdit(
     constructor(context: Context?) : this(context, null) {
 
     }
+
+
+
+
+
+    @InverseBindingAdapter(attribute = "value", event = "valueAttrChanged")
+    fun getValue(squ:SquareTextEdit): String? {
+        return squ.edittext.text?.toString()
+    }
+
+
+    @BindingAdapter("value", requireAll = false)
+    fun setValue(squ:SquareTextEdit,text: MutableLiveData<String>?) {
+        ThreadUtils.runOnUiThread(Runnable { squ.valueme = text?.value })
+
+        text?.let {
+            if (!it.hasObservers()) {
+                it.observe(this.context as LifecycleOwner, Observer { level ->
+                    ThreadUtils.runOnUiThread(Runnable {
+                        val selectionStart = squ.edittext.getSelectionStart()
+                        squ.valueme = level
+                        squ.edittext.setSelection(selectionStart)
+                    })
+                })
+            }
+        }
+
+    }
+
+    @BindingAdapter("valueAttrChanged", requireAll = false)
+    fun valueAttrChanged(squ:SquareTextEdit,inverseBindingListener: InverseBindingListener?) {
+        this.edittext.addTextChangedListener(object : TextWatcher {
+            var temp :String? = null
+            override fun afterTextChanged(s: Editable?) {
+            }
+
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
+                if (TextUtils.isEmpty(s)) {
+                    temp = ""
+                }else temp = CloneUtils.deepClone(s.toString(), String::class.java)
+            }
+
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+                if (!temp!!.equals(s.toString())) {
+                    inverseBindingListener?.onChange()
+                }
+                if (TextUtils.isEmpty(s)) {
+                    temp = ""
+                }else temp = CloneUtils.deepClone(s.toString(), String::class.java)
+            }
+        })
+
+    }
+
 
 
 }
