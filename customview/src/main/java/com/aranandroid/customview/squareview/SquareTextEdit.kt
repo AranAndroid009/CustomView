@@ -246,7 +246,7 @@ class SquareTextEdit(
 
     @BindingAdapter("valueAttrChanged", requireAll = false)
     fun valueAttrChanged(squ:SquareTextEdit,inverseBindingListener: InverseBindingListener?) {
-        this.edittext.addTextChangedListener(object : TextWatcher {
+        squ.edittext.addTextChangedListener(object : TextWatcher {
             var temp :String? = null
             override fun afterTextChanged(s: Editable?) {
             }
