@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".ui.SquareMoreActivity">
     <com.aranandroid.customview.title.TitleView
-        android:paddingLeft="12dp"
+        android:paddingLeft="10dp"
         android:paddingRight="12dp"
         app:back="true"
         app:title="pppp"
