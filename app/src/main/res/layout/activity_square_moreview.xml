@@ -84,7 +84,7 @@
 
             <com.aranandroid.customview.squareview.SquareTextImage
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/dp_40"
+                android:layout_height="300dp"
                 app:corner="0dp"
                 android:layout_margin="@dimen/dp_10"
                 android:paddingLeft="20dp"
