@@ -20,55 +20,6 @@ import com.blankj.utilcode.util.ThreadUtils
  */
 
 
-@InverseBindingAdapter(attribute = "value", event = "valueAttrChanged")
-fun SquareTextEdit.getValue(): String? {
-    return this.edittext.text?.toString()
-}
-
-
-@BindingAdapter("value", requireAll = false)
-fun SquareTextEdit.setValue(text: MutableLiveData<String>?) {
-    var squ = this
-    ThreadUtils.runOnUiThread(Runnable { squ.valueme = text?.value })
-
-    text?.let {
-        if (!it.hasObservers()) {
-            it.observe(this.context as LifecycleOwner, Observer { level ->
-                ThreadUtils.runOnUiThread(Runnable {
-                    val selectionStart = squ.edittext.getSelectionStart()
-                    squ.valueme = level
-                    squ.edittext.setSelection(selectionStart)
-                })
-            })
-        }
-    }
-
-}
-
-@BindingAdapter("valueAttrChanged", requireAll = false)
-fun SquareTextEdit.valueAttrChanged(inverseBindingListener: InverseBindingListener?) {
-    this.edittext.addTextChangedListener(object : TextWatcher {
-        var temp :String? = null
-        override fun afterTextChanged(s: Editable?) {
-        }
-
-        override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
-            if (TextUtils.isEmpty(s)) {
-                temp = ""
-            }else temp = CloneUtils.deepClone(s.toString(), String::class.java)
-        }
-
-        override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
-            if (!temp!!.equals(s.toString())) {
-                inverseBindingListener?.onChange()
-            }
-            if (TextUtils.isEmpty(s)) {
-                temp = ""
-            }else temp = CloneUtils.deepClone(s.toString(), String::class.java)
-        }
-    })
-
-}
 
 
 
