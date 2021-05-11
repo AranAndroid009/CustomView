@@ -23,11 +23,11 @@ open class SquareSelectedView(
     var cornerrt: Float
     var cornerrb: Float
 
-    private var dashwidth: Float = 0F
-    private var dashgap: Float = 0F
-    private var linecolor: Int = 0
-    private var fillcolor: Int = 0
-    private var linewidth: Float = 0F
+    var dashwidth: Float = 0F
+    var dashgap: Float = 0F
+    var linecolor: Int = 0
+    var fillcolor: Int = 0
+    var linewidth: Float = 0F
 
     fun setCorner(value:Float) {
         corner = value
@@ -35,33 +35,13 @@ open class SquareSelectedView(
         cornerlb = 0F
         cornerrt = 0F
         cornerrb = 0F
-        view.background = getBackGround()
     }
 
-    fun setLinewidth(value: Float) {
+    fun refreshBackground(value: Float) {
         linewidth = value
         view.background = getBackGround()
     }
 
-    fun setDashwidth(value: Float) {
-        dashwidth = value
-        view.background = getBackGround()
-    }
-
-    fun setDashgap(value: Float) {
-        dashgap = value
-        view.background = getBackGround()
-    }
-
-    fun setLinecolor(value: Int) {
-        linecolor = value
-        view.background = getBackGround()
-    }
-
-    fun setFillcolor(value: Int) {
-        fillcolor = value
-        view.background = getBackGround()
-    }
 
     init {
         val obtainStyledAttributes =
