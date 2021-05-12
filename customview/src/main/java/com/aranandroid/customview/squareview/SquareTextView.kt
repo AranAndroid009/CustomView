@@ -5,13 +5,14 @@ import android.graphics.Canvas
 import android.util.AttributeSet
 import androidx.annotation.Nullable
 import androidx.appcompat.widget.AppCompatEditText
+import androidx.appcompat.widget.AppCompatTextView
 
 class SquareTextView(
     @Nullable context: Context?,
     @Nullable attrs: AttributeSet?,
     defStyleAttr: Int
 ) :
-    AppCompatEditText(context!!, attrs, defStyleAttr) {
+    AppCompatTextView(context!!, attrs, defStyleAttr) {
 
     var squareView: SquareView
 
