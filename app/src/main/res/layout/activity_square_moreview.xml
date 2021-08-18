@@ -94,7 +94,7 @@
                 >
             </com.aranandroid.customview.squareview.SquareTextImage>
 
-            <com.aranandroid.customview.fragment.FragmentTop
+            <com.aranandroid.customview.fragment.FragmentBottom
                 android:id="@+id/fragment_top"
                 android:layout_width="match_parent"
                 android:layout_height="500dp">
@@ -131,7 +131,7 @@
                         android:text="H"
                         tools:ignore="MissingConstraints" />
                 </com.aranandroid.customview.squareview.SquareLinearLayout>
-            </com.aranandroid.customview.fragment.FragmentTop>
+            </com.aranandroid.customview.fragment.FragmentBottom>
         </LinearLayout>
     </ScrollView>
 </com.aranandroid.customview.title.TitleLayout>
