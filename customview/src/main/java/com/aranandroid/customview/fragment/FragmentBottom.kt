@@ -21,30 +21,35 @@ import com.aranandroid.customview.R
 
 class FragmentBottom(context: Context?, attrs: AttributeSet?) : LinearLayout(context, attrs) {
 
-    var view:View
+    var view: View
 
-    var radio:RadioGroup
+    var radio: RadioGroup
 
     var viewPager: ViewPager
 
-    var fragments: LinkedHashMap<Int,Fragment>? = null
+
+     var changeItme : (group: RadioGroup, checkedId: Int) -> Unit = {group, checkedId ->  }
+
+    var fragments: LinkedHashMap<Int, Fragment>? = null
         set(value) {
             field = value
             radio.setOnCheckedChangeListener(RadioGroup.OnCheckedChangeListener { group, checkedId ->
                 fragments?.keys?.let {
                     for ((i, key) in it.withIndex()) {
-                        if(checkedId == key){
-                            viewPager.setCurrentItem(i,true)
+                        if (checkedId == key) {
+                            viewPager.setCurrentItem(i, true)
                         }
                     }
                 }
+                changeItme(group,checkedId)
             })
             val fm: FragmentManager = (context as FragmentActivity).getSupportFragmentManager()
             val myFragmentPagerAdapter =
-                fragments?.values?.toList()?.let { MyFragmentPagerAdapter(fm, it) } //new myFragmentPagerAdater记得带上两个参数
+                fragments?.values?.toList()
+                    ?.let { MyFragmentPagerAdapter(fm, it) } //new myFragmentPagerAdater记得带上两个参数
             viewPager.adapter = myFragmentPagerAdapter
             viewPager.offscreenPageLimit = 3
-            viewPager.addOnPageChangeListener(object : OnPageChangeListener{
+            viewPager.addOnPageChangeListener(object : OnPageChangeListener {
                 override fun onPageScrollStateChanged(state: Int) {
                 }
 
@@ -58,7 +63,7 @@ class FragmentBottom(context: Context?, attrs: AttributeSet?) : LinearLayout(con
                 override fun onPageSelected(position: Int) {
                     fragments?.keys?.let {
                         for ((i, key) in it.withIndex()) {
-                            if(position == i){
+                            if (position == i) {
                                 radio.findViewById<RadioButton>(key).performClick()
                             }
                         }
@@ -73,7 +78,7 @@ class FragmentBottom(context: Context?, attrs: AttributeSet?) : LinearLayout(con
         viewPager = view.findViewById(R.id.pager)
     }
 
-    constructor(context: Context?):this(context,null){
+    constructor(context: Context?) : this(context, null) {
 
     }
 
@@ -83,7 +88,7 @@ class FragmentBottom(context: Context?, attrs: AttributeSet?) : LinearLayout(con
 //        addChildrenForAccessibility()
         val children = children
         for (child in children) {
-            if(child.id != R.id.fragment_top){
+            if (child.id != R.id.fragment_top) {
                 (child.parent as ViewGroup).removeView(child)
                 radio.addView(child)
             }
@@ -95,7 +100,7 @@ class FragmentBottom(context: Context?, attrs: AttributeSet?) : LinearLayout(con
         fm: FragmentManager?,
         list: List<Fragment>
     ) :
-        FragmentPagerAdapter(fm!!,FragmentPagerAdapter.BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT) {
+        FragmentPagerAdapter(fm!!, FragmentPagerAdapter.BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT) {
         private val listfragment //创建一个List<Fragment>
                 : List<Fragment>
 

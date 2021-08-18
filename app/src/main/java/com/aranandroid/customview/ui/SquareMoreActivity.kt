@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import android.app.Activity
 import android.os.Bundle
 import android.os.PersistableBundle
+import android.util.Log
 import android.widget.RadioButton
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -30,7 +31,9 @@ class SquareMoreActivity : FragmentActivity() {
             Toast.makeText(this ,"click",Toast.LENGTH_SHORT).show()
         }
         fragment_top.fragments = linkedMapOf(Pair(R.id.f, AFragment()),Pair(R.id.h, BFragment()))
-
+        fragment_top.changeItme={group, checkedId ->
+            Log.e("TAG", "onCreate: "+checkedId )
+        }
     }
 
 
