@@ -87,12 +87,17 @@ class FragmentBottom(context: Context?, attrs: AttributeSet?) : LinearLayout(con
         super.dispatchDraw(canvas)
 //        addChildrenForAccessibility()
         val children = children
-        for (child in children) {
-            if (child.id != R.id.fragment_top) {
-                (child.parent as ViewGroup).removeView(child)
-                radio.addView(child)
+        fragments?.keys?.let {
+            for (id in it) {
+                for (child in children) {
+                    if (child.id == id) {
+                        (child.parent as ViewGroup).removeView(child)
+                        radio.addView(child)
+                    }
+                }
             }
         }
+
     }
 
 

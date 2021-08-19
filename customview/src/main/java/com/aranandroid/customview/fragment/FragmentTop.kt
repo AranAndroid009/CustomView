@@ -1,6 +1,5 @@
 package com.aranandroid.customview.fragment
 
-import android.app.Activity
 import android.content.Context
 import android.graphics.Canvas
 import android.util.AttributeSet
@@ -82,10 +81,14 @@ class FragmentTop(context: Context?, attrs: AttributeSet?) : LinearLayout(contex
         super.dispatchDraw(canvas)
 //        addChildrenForAccessibility()
         val children = children
-        for (child in children) {
-            if(child.id != R.id.fragment_top){
-                (child.parent as ViewGroup).removeView(child)
-                radio.addView(child)
+        fragments?.keys?.let {
+            for (id in it) {
+                for (child in children) {
+                    if (child.id == id) {
+                        (child.parent as ViewGroup).removeView(child)
+                        radio.addView(child)
+                    }
+                }
             }
         }
     }
