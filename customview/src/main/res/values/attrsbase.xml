@@ -46,8 +46,11 @@
     <!--    是否单行-->
     <attr name="single" format="boolean" />
 
+    <attr name="scroll_control1" format="boolean" />
 
-<!--    分组4：-->
+
+
+    <!--    分组4：-->
     <attr name="gravity_key" format="integer">
         <!-- Push object to the top of its container, not changing its size. -->
         <flag name="top" value="0x30" />

@@ -25,7 +25,7 @@ class FragmentBottom(context: Context?, attrs: AttributeSet?) : LinearLayout(con
 
     var radio: RadioGroup
 
-    var viewPager: ViewPager
+    var viewPager: ScrollControlViewPager
 
 
      var changeItme : (group: RadioGroup, checkedId: Int) -> Unit = {group, checkedId ->  }
@@ -76,6 +76,9 @@ class FragmentBottom(context: Context?, attrs: AttributeSet?) : LinearLayout(con
         view = LayoutInflater.from(context).inflate(R.layout.fragment_bottom, this, true)
         radio = view.findViewById(R.id.radio)
         viewPager = view.findViewById(R.id.pager)
+        val obtainStyledAttributes = context?.obtainStyledAttributes(attrs, R.styleable.FragmentBottom)
+        obtainStyledAttributes?.let { viewPager.DISABLE =  it.getBoolean(R.styleable.FragmentBottom_scroll_control1,true)}
+        obtainStyledAttributes?.recycle()
     }
 
     constructor(context: Context?) : this(context, null) {

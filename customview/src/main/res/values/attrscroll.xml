@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<resources>
+    
+
+
+
+    <declare-styleable name="FragmentTop">
+        <!-- 左边文字大小-->
+        <attr name="scroll_control1" />
+    </declare-styleable>
+
+    <declare-styleable name="FragmentBottom">
+        <!-- 左边文字大小-->
+        <attr name="scroll_control1" />
+    </declare-styleable>
+
+</resources>

@@ -24,7 +24,7 @@ class FragmentTop(context: Context?, attrs: AttributeSet?) : LinearLayout(contex
 
     var radio:RadioGroup
 
-    var viewPager: ViewPager
+    var viewPager: ScrollControlViewPager
 
     var fragments: LinkedHashMap<Int,Fragment>? = null
         set(value) {
@@ -70,6 +70,9 @@ class FragmentTop(context: Context?, attrs: AttributeSet?) : LinearLayout(contex
         view = LayoutInflater.from(context).inflate(R.layout.fragment_top, this, true)
         radio = view.findViewById(R.id.radio)
         viewPager = view.findViewById(R.id.pager)
+
+        val obtainStyledAttributes = context?.obtainStyledAttributes(attrs, R.styleable.FragmentTop)
+        obtainStyledAttributes?.let { viewPager.DISABLE =  it.getBoolean(R.styleable.FragmentTop_scroll_control1,true)}
     }
 
     constructor(context: Context?):this(context,null){

@@ -97,6 +97,7 @@
 
             <com.aranandroid.customview.fragment.FragmentTop
                 android:id="@+id/fragment_top"
+                app:scroll_control1="false"
                 android:layout_width="match_parent"
                 android:layout_height="500dp">
                 <com.aranandroid.customview.squareview.SquareRadioButton
